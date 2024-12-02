@@ -15,7 +15,7 @@ function PlaylistPanel(){
                 <div style={{ display: 'flex', height: '80%', width: '90%',marginLeft: '5%',marginBottom: '5%', gap: '5%'}}>
                     
         
-                    <Panel backgroundColor="#000000" borderRadius="20px" flexWidth={2} children={<PlaylistDisplay></PlaylistDisplay>}>
+                    <Panel backgroundColor="#000000" borderRadius="20px" flexWidth={1} children={<PlaylistDisplay></PlaylistDisplay>}>
                     </Panel>
                     
                     

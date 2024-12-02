@@ -16,7 +16,7 @@ function Home() {
     setIsDragging(true);
 
     if (dividerRef.current) {
-      dividerRef.current.style.opacity = 0.3; // Set opacity to 50% when dragging
+      dividerRef.current.style.opacity = 0.3; 
     }
   };
 
@@ -42,13 +42,11 @@ function Home() {
   const handleMouseUp = () => {
     setIsDragging(false);
 
-    // Reset the divider's opacity when dragging ends
     if (dividerRef.current) {
       dividerRef.current.style.opacity = 1; // Set opacity back to 100% when dragging ends
     }
   };
 
-  // Attach global mouse move and up handlers during dragging
   useEffect(() => {
     if (isDragging) {
       window.addEventListener('mousemove', handleMouseMove);
@@ -64,12 +62,10 @@ function Home() {
     };
   }, [isDragging]);
 
-  // Calculate the initial position of the divider based on the widths of the panels and their margins
   useEffect(() => {
     const leftPanelRect = leftPanelRef.current.getBoundingClientRect();
     const rightPanelRect = rightPanelRef.current.getBoundingClientRect();
 
-    // Calculate the initial position of the divider based on the left panel's width
     const initialDividerPosition =
       leftPanelRect.width + leftPanelRect.left - containerRef.current.getBoundingClientRect().left;
 
@@ -90,17 +86,17 @@ function Home() {
         display: 'flex',
         height: '100vh',
         width: '100vw',
-        position: 'relative', // Ensure divider is positioned correctly within the container
+        position: 'relative', 
       }}
     >
-      {/* Left Panel */}
+
       <div ref={leftPanelRef} style={{ flex: leftPanelFlex, transition: 'flex 0.1s' }}>
         <Panel backgroundColor="#89928A" borderRadius="20px">
           <SearchMenu />
         </Panel>
       </div>
 
-      {/* Resizable Divider */}
+
       <div
         ref={dividerRef}
         style={{
@@ -110,13 +106,12 @@ function Home() {
           width: '5px',
           height: '100%',
           zIndex: 1,
-          opacity: 1, // Default opacity (fully opaque)
-          transition: 'opacity 0.1s ease', // Smooth transition for opacity change
+          opacity: 1,
+          transition: 'opacity 0.1s ease', 
         }}
         onMouseDown={handleMouseDown}
       ></div>
 
-      {/* Right Panel */}
       <div ref={rightPanelRef} style={{ flex: rightPanelFlex, transition: 'flex 0.1s' }}>
         <Panel backgroundColor="#D3ECC0" borderRadius="20px">
           <PlaylistPanel />

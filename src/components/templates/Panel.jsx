@@ -10,6 +10,9 @@ const Panel = ({
   rightMargin = '10px', 
   topMargin = '20px', 
   bottomMargin = '20px', 
+  justifyContent = 'center',
+  height = "100%",
+  alignItems="",
 }) => {
   
   const panelStyle = {
@@ -20,6 +23,9 @@ const Panel = ({
     marginRight: rightMargin,
     marginTop: topMargin,
     marginBottom: bottomMargin,
+    justifyContent: justifyContent,
+    height: height,
+    alignItems: alignItems
   };
 
   return (

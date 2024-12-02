@@ -76,7 +76,6 @@ const PlaylistGrid = () => {
   );
 };
 
-// Inline styles for the grid layout and playlist items
 const styles = {
   gridContainer: {
     display: 'flex',
