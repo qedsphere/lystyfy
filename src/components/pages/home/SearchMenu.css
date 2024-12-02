@@ -1,0 +1,7 @@
+.search-container {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    width: 100%;
+    height: 100%;
+    position: relative; /* To position results box relative to the container */
+  }

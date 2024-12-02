@@ -1,0 +1,13 @@
+.panel-container {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    height: 100%;
+    flex: 1;
+    justify-content: center;
+    overflow: hidden; /* Prevent content overflow */
+    
+  }
+  
