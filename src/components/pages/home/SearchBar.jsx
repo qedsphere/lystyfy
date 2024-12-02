@@ -1,24 +1,46 @@
-import React, { useState } from 'react';
-import './SearchBar.css';  // We'll define the styles in a separate CSS file
+import React, { useState, useContext } from 'react';
+import './SearchBar.css'; 
+import { usePlaylist } from '../../../contexts/PlaylistContext';
+
+
+
 
 const SearchBar = ({ data }) => {
-  const [query, setQuery] = useState(''); // To track input text
-  const [results, setResults] = useState([]); // To store filtered results
+  const [query, setQuery] = useState(''); 
+  const [results, setResults] = useState([]); 
+  const [playlists, setPlaylists] = useState([]);
 
+  const { selectedPlaylist, setSelectedPlaylist } = usePlaylist(); 
+
+
+    const makeGlobal = (index) => 
+    {
+      setSelectedPlaylist(playlists[index]);
+    }
   const handleChange = (event) => {
     const value = event.target.value;
     setQuery(value);
     
     if (value) {
-      const filteredResults = data.filter(item =>
-        item.toLowerCase().includes(value.toLowerCase())
-      );
-      console.log(filteredResults)
-      setResults(filteredResults);
+      if (query !== ""){
+        data(query).then( (values)=>{
+          values = values.filter((playlist) => playlist !== null)
+          let filteredResults = values.map((playlist) => playlist.name)
+          setResults(filteredResults);
+          setPlaylists(values)
+        }
+          
+
+        )
+        
+      }
+      
     } else {
       setResults([]);
     }
   };
+
+
 
   return (
     <div className="search-container2">
@@ -32,7 +54,9 @@ const SearchBar = ({ data }) => {
       {results.length > 0 && (
         <div className="results-box">
           {results.map((result, index) => (
-            <div key={index} className="result-item">{result}</div>
+            <div onClick={(event)=>{
+              makeGlobal(index);
+            }} key={index} className="result-item">{result}</div>
           ))}
         </div>
       )}

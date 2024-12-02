@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { usePlaylist } from '../../../contexts/PlaylistContext';
 
 // Function to fetch playlists using the access token stored in localStorage
 async function fetchUserPlaylists() {
@@ -25,11 +26,14 @@ async function fetchUserPlaylists() {
 }
 
 const PlaylistGrid = () => {
+    const { selectedPlaylist, setSelectedPlaylist } = usePlaylist(); 
   const [playlists, setPlaylists] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  
 
   useEffect(() => {
     const fetchData = async () => {
+
       const data = await fetchUserPlaylists();
       console.log(data)
       setPlaylists(data.filter((playlist) => playlist !== null));
@@ -47,20 +51,22 @@ const PlaylistGrid = () => {
     return <p>No playlists found. Please ensure you are logged in to Spotify and have created playlists.</p>;
   }
 
+
   return (
     <div>
       <h1>Your Spotify Playlists</h1>
       <div style={styles.gridContainer}>
-        {playlists.map((playlist) => (
+        {playlists.map((playlist, index) => (
           <div key={playlist.id} style={styles.gridItem}>
           {playlist.images && playlist.images.length > 0 ? (
             <img
               src={playlist.images[0].url}
               alt={playlist.name}
               style={styles.image}
-            />
+              onClick={()=>{setSelectedPlaylist(playlist)}}
+             />
           ) : (
-            <div style={styles.placeholderImage}>No Image</div>
+            <div onClick={()=>{setSelectedPlaylist(playlist)}} style={styles.placeholderImage}>No Image</div>
           )}
           <p style={styles.name}>{playlist.name}</p>
         </div>
