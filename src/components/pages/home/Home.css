@@ -1,0 +1,11 @@
+.resizable-divider {
+    width: 5px;
+    background-color: #ffffff;
+    cursor: col-resize;
+    transition: background-color 0.2s ease;
+  }
+  
+  .resizable-divider:hover {
+    background-color: #ccc; /* Highlight on hover */
+  }
+  

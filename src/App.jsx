@@ -4,8 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
  
-
-import LoginPage from './components/pages/LoginPage'
+import Callback from "./components/pages/login/Callback"
+import LoginPage from './components/pages/login/LoginPage'
 import Home from './components/pages/home/Home'
 
 function App() {
@@ -15,7 +15,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LoginPage />} />
-        <Route path="/home" element={<Home />} />the
+        <Route path="/home" element={<Home />} />
+        <Route path="/callback" element={<Callback />} />
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />
       </Routes>
     </Router>

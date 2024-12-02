@@ -7,7 +7,7 @@
     height: 100%;
     flex: 1;
     justify-content: center;
-    overflow: hidden; /* Prevent content overflow */
+    overflow: auto;
     
   }
   

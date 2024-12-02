@@ -1,13 +1,27 @@
 import React from 'react';
 import './Panel.css';
 
-const Panel = ({ children, backgroundColor, borderRadius, flexWidth }) => {
+const Panel = ({
+  children,
+  backgroundColor = 'FFFFFF', 
+  borderRadius = '5px', 
+  flexWidth = '1', 
+  leftMargin = '10px', 
+  rightMargin = '10px', 
+  topMargin = '20px', 
+  bottomMargin = '20px', 
+}) => {
   
-    let  panelStyle = {
-        backgroundColor: backgroundColor, 
-        borderRadius: borderRadius, 
-        flex : flexWidth,
-    };
+  const panelStyle = {
+    backgroundColor,
+    borderRadius,
+    flex: flexWidth,
+    marginLeft: leftMargin,
+    marginRight: rightMargin,
+    marginTop: topMargin,
+    marginBottom: bottomMargin,
+  };
+
   return (
     <div className="panel-container" style={panelStyle}>
       {children}

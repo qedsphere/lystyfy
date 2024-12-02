@@ -10,7 +10,6 @@ const SearchBar = ({ data }) => {
     setQuery(value);
     
     if (value) {
-        
       const filteredResults = data.filter(item =>
         item.toLowerCase().includes(value.toLowerCase())
       );
