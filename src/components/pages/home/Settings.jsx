@@ -53,7 +53,6 @@ const Settings = () => {
 
   const generateOrganizedPlaylistIrl = () => {
     Create(songs);
-    console.log(songs);
   }
 
   const showOrganized = () => {
