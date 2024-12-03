@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Slider from '@mui/material/Slider';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Sort from './Sort.jsx';
+import Create from './Create.jsx';
 
 
 const theme = createTheme({
@@ -48,6 +49,11 @@ const Settings = () => {
   const generateOrganizedPlaylist = () => {
     setIsOrganized(true);
     setOrganized([songs, Sort(songs, sliderValues), false]);
+  }
+
+  const generateOrganizedPlaylistIrl = () => {
+    Create(songs);
+    console.log("called");
   }
 
   const showOrganized = () => {
@@ -97,14 +103,25 @@ const Settings = () => {
 
             }
 
+            {(showOrganized===true && organized && isOrganized  && songs === organized[0] || songs === organized[1]) &&
+              (<Button variant="contained" color={"white"} onClick={generateOrganizedPlaylistIrl}>make this playlist for me</Button>)}
+
+            {(organized && isOrganized && songs === organized[0] || songs === organized[1]) &&
+              (<Button variant="contained" color={"white"} onClick={showOrganized}>View!</Button>)}
+            
+            {/* the below button choice disappears neatly, but the above doesn't render extra space when it is not visible. 
+            alternatively we can manually prevent scrolling at some point*/}
+            {/*
+            organized && isOrganized && songs === organized[0] || songs === organized[1] ? (
+              <Button variant="contained" color={"white"} onClick={showOrganized}>View!</Button>
+            ) : (
+              <Button variant="contained" color={"white"} disabled>View!</Button>
+            )
+            */}
+
             <Button variant="contained" color={"white"} onClick={generateOrganizedPlaylist}>Generate</Button>
-            {
-              organized !== null && isOrganized !== null && songs === organized[0] || songs === organized[1] ? (
-                <Button variant="contained" color={"white"} onClick={showOrganized}>View!</Button>
-              ) : (
-                <Button variant="contained" color={"white"} disabled>View!</Button>
-              )
-            }
+
+            
 
 
 
@@ -116,7 +133,7 @@ const Settings = () => {
           </div>
 
         </div>
-      </ThemeProvider>
+      </ThemeProvider >
 
 
 
