@@ -3,6 +3,7 @@ import { useState, useEffect} from 'react'
 import SearchBar from "./SearchBar"
 import Panel from "../../templates/Panel"
 import PlaylistDisplay from './PlaylistDisplay'
+import Settings from "./Settings"
 {/*<div style={{ height: '100%', width: '100%' }}>*/}
 
 
@@ -19,7 +20,7 @@ function PlaylistPanel(){
                     </Panel>
                     
                     
-                    <Panel backgroundColor="#FFFFFF" borderRadius="20px" flexWidth={1} >
+                    <Panel backgroundColor="#682323" borderRadius="20px" flexWidth={1} children={<Settings></Settings>} >
                     </Panel>
                     
                     

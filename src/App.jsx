@@ -5,6 +5,7 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
  
 import { PlaylistProvider } from './contexts/PlaylistContext';
+import { OrganizedPlaylistProvider } from './contexts/OrganizedContext';
 import Callback from "./components/pages/login/Callback"
 import LoginPage from './components/pages/login/LoginPage'
 import Home from './components/pages/home/Home'
@@ -13,6 +14,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
+    <OrganizedPlaylistProvider>
     <PlaylistProvider>
       <Router>
       <Routes>
@@ -23,6 +25,7 @@ function App() {
       </Routes>
     </Router>
     </PlaylistProvider>
+    </OrganizedPlaylistProvider>
     
   );
 }

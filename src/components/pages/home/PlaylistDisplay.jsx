@@ -33,6 +33,8 @@ const PlaylistDisplay = () => {
         }
 
         const data = await response.json();
+        data.items.filter(item => item !== null);
+        
         setSongs(data.items.map(item => item.track)); 
       } catch (error) {
         console.error('Error fetching songs:', error);
@@ -51,6 +53,7 @@ const PlaylistDisplay = () => {
       <h2>{selectedPlaylist.name} - Songs</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: "0px",  flexShrink: "10"}}>
         {songs.map((song) => (
+
           <Panel
             key={updateSongId()}
             backgroundColor="#faf0e6"
