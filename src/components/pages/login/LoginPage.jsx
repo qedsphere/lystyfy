@@ -18,13 +18,16 @@ function LoginPage() {
   }, []);
 
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", height: "100vh", justifyContent: "center", backgroundColor: "#242424", color: "white" }}>
       <h1>Lystyfy</h1>
       <a href={authUrl}>
-        <button className="button-1">Login with Spotify!</button>
+      <button className="button-1">
+        Connect with Spotify.
+      </button>
       </a>
+      
     </div>
   );
 }
 
-export default LoginPage
+export default LoginPage;

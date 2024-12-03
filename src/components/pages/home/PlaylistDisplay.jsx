@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Panel from '../../templates/Panel';
 import { usePlaylist } from '../../../contexts/PlaylistContext'; 
+import { useSongs } from '../../../contexts/SongsContext'; 
+
+import Button from '@mui/material/Button';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 
 
 const PlaylistDisplay = () => {
+  
   const { selectedPlaylist } = usePlaylist(); 
-  const [songs, setSongs] = useState([]);
+  const {songs, setSongs} = useSongs();
   let id =0
 
   const updateSongId = ()=>{
@@ -33,9 +38,10 @@ const PlaylistDisplay = () => {
         }
 
         const data = await response.json();
-        data.items.filter(item => item !== null);
-        
-        setSongs(data.items.map(item => item.track)); 
+        //console.log(data)
+        let temp = data.items.map(item => item.track);
+        temp = temp.filter(album => album !== null);     
+        setSongs(temp); 
       } catch (error) {
         console.error('Error fetching songs:', error);
       }
@@ -49,9 +55,15 @@ const PlaylistDisplay = () => {
   }
 
   return (
-    <div style={{width: "80%" }}>
-      <h2>{selectedPlaylist.name} - Songs</h2>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: "0px",  flexShrink: "10"}}>
+    <div style={{overflowY:"auto",flexDirection:"column",justifyItems:"center"}}>
+      <div style={{ display:"flex",flexDirection:"row",width:"100%",backgroundColor:"green",borderRadius:"0", textAlign:"center"}}>
+        <h2 style={{flex:"1", justifyContent:"center"}}>{selectedPlaylist.name}</h2>
+        
+      </div>
+      
+      <div style={{width: "80%",marginTop: "20px"}}>
+      
+      <div style={{ overflowY:"auto", display: 'flex', flexDirection: 'column', gap: "0px"}}>
         {songs.map((song) => (
 
           <Panel
@@ -88,6 +100,8 @@ const PlaylistDisplay = () => {
           </Panel>
         ))}
       </div>
+    </div>
+      
     </div>
   );
 };

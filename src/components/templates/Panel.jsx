@@ -13,6 +13,7 @@ const Panel = ({
   justifyContent = 'center',
   height = "100%",
   alignItems="",
+  overflowY="auto"
 }) => {
   
   const panelStyle = {
@@ -25,7 +26,8 @@ const Panel = ({
     marginBottom: bottomMargin,
     justifyContent: justifyContent,
     height: height,
-    alignItems: alignItems
+    alignItems: alignItems,
+    overflowY : overflowY
   };
 
   return (

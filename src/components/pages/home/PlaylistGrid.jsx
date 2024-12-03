@@ -54,7 +54,12 @@ const PlaylistGrid = () => {
 
   return (
     <div>
-      <h1>Your Spotify Playlists</h1>
+      <div style={{overflowY:"auto",flexDirection:"column",justifyItems:"center"}}>
+      <div style={{ display:"flex",flexDirection:"row",width:"100%",backgroundColor:"green",borderRadius:"0", textAlign:"center"}}>
+        <h2 style={{flex:"1", justifyContent:"center"}}>Your Playlists</h2>
+        
+      </div>
+      
       <div style={styles.gridContainer}>
         {playlists.map((playlist, index) => (
           <div key={playlist.id} style={styles.gridItem}>
@@ -72,6 +77,8 @@ const PlaylistGrid = () => {
         </div>
         ))}
       </div>
+      </div>
+      
     </div>
   );
 };
