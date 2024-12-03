@@ -1,32 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Panel from '../../templates/Panel';
-import { usePlaylist } from '../../../contexts/PlaylistContext';
-import { useSongs } from '../../../contexts/SongsContext';
+import { useContexts } from '../../../contexts/Contexts.jsx';
 
 import Button from '@mui/material/Button';
 import Slider from '@mui/material/Slider';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Sort from './Sort.jsx';
 
-
-
-function shuffle(array) {
-  let arr2 = Array.from(array)
-  let currentIndex = arr2.length;
-
-  // While there remain elements to shuffle...
-  while (currentIndex != 0) {
-
-    // Pick a remaining element...
-    let randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element.
-    [arr2[currentIndex], arr2[randomIndex]] = [
-      arr2[randomIndex], arr2[currentIndex]];
-  }
-  return arr2;
-}
 
 const theme = createTheme({
   palette: {
@@ -43,9 +23,8 @@ const theme = createTheme({
 
 
 const Settings = () => {
-  const { selectedPlaylist } = usePlaylist();
   const [organized, setOrganized] = useState([]);
-  const { songs, setSongs } = useSongs();
+  const { selectedPlaylist, setSelectedPlaylist, songs, setSongs } = useContexts();
   const [isOrganized, setIsOrganized] = useState(false);
   const num_sliders = 5;
   const sliderLabels = ["BPM", "Key", "Energy", "Acousticness", "Base"]

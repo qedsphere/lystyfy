@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import './SearchBar.css'; 
-import { usePlaylist } from '../../../contexts/PlaylistContext';
-
+import { useContexts } from '../../../contexts/Contexts';
 
 
 
@@ -10,8 +9,7 @@ const SearchBar = ({ data }) => {
   const [results, setResults] = useState([]); 
   const [playlists, setPlaylists] = useState([]);
 
-  const { selectedPlaylist, setSelectedPlaylist } = usePlaylist(); 
-
+  const { selectedPlaylist, setSelectedPlaylist, songs, setSongs } = useContexts(); 
 
     const makeGlobal = (index) => 
     {

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { usePlaylist } from '../../../contexts/PlaylistContext';
+import React, { useContext, useEffect, useState } from 'react';
+import { useContexts } from '../../../contexts/Contexts';
 
 // Function to fetch playlists using the access token stored in localStorage
 async function fetchUserPlaylists() {
@@ -26,10 +26,10 @@ async function fetchUserPlaylists() {
 }
 
 const PlaylistGrid = () => {
-    const { selectedPlaylist, setSelectedPlaylist } = usePlaylist(); 
+  const { selectedPlaylist, setSelectedPlaylist, songs, setSong } = useContexts();
   const [playlists, setPlaylists] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,38 +47,38 @@ const PlaylistGrid = () => {
     return <p>Loading playlists...</p>;
   }
 
-  if (playlists.length == 0 || playlists===null) {
+  if (playlists.length == 0 || playlists === null) {
     return <p>No playlists found. Please ensure you are logged in to Spotify and have created playlists.</p>;
   }
 
 
   return (
     <div>
-      <div style={{overflowY:"auto",flexDirection:"column",justifyItems:"center"}}>
-      <div style={{ display:"flex",flexDirection:"row",width:"100%",backgroundColor:"green",borderRadius:"0", textAlign:"center"}}>
-        <h2 style={{flex:"1", justifyContent:"center"}}>Your Playlists</h2>
-        
-      </div>
-      
-      <div style={styles.gridContainer}>
-        {playlists.map((playlist, index) => (
-          <div key={playlist.id} style={styles.gridItem}>
-          {playlist.images && playlist.images.length > 0 ? (
-            <img
-              src={playlist.images[0].url}
-              alt={playlist.name}
-              style={styles.image}
-              onClick={()=>{setSelectedPlaylist(playlist)}}
-             />
-          ) : (
-            <div onClick={()=>{setSelectedPlaylist(playlist)}} style={styles.placeholderImage}>No Image</div>
-          )}
-          <p style={styles.name}>{playlist.name}</p>
+      <div style={{ overflowY: "auto", flexDirection: "column", justifyItems: "center" }}>
+        <div style={{ display: "flex", flexDirection: "row", width: "100%", backgroundColor: "green", borderRadius: "0", textAlign: "center" }}>
+          <h2 style={{ flex: "1", justifyContent: "center" }}>Your Playlists</h2>
+
         </div>
-        ))}
+
+        <div style={styles.gridContainer}>
+          {playlists.map((playlist, index) => (
+            <div key={playlist.id} style={styles.gridItem}>
+              {playlist.images && playlist.images.length > 0 ? (
+                <img
+                  src={playlist.images[0].url}
+                  alt={playlist.name}
+                  style={styles.image}
+                  onClick={() => { setSelectedPlaylist(playlist); }}
+                />
+              ) : (
+                <div onClick={() => { setSelectedPlaylist(playlist) }} style={styles.placeholderImage}>No Image</div>
+              )}
+              <p style={styles.name}>{playlist.name}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      </div>
-      
+
     </div>
   );
 };

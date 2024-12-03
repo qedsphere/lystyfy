@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Panel from '../../templates/Panel';
-import { usePlaylist } from '../../../contexts/PlaylistContext'; 
-import { useSongs } from '../../../contexts/SongsContext'; 
-
+import { useContexts } from '../../../contexts/Contexts';
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
 
 
 const PlaylistDisplay = () => {
-  
-  const { selectedPlaylist } = usePlaylist(); 
-  const {songs, setSongs} = useSongs();
-  let id =0
+  const { selectedPlaylist, setSelectedPlaylist, songs, setSongs } = useContexts();
+  let id = 0; //added in a space and a semicolon here 👍👍
 
   const updateSongId = ()=>{
-    id  = (id+1);
+    id = (id+1);
     return id
 
   }
