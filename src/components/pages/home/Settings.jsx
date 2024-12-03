@@ -43,7 +43,7 @@ const theme = createTheme({
 
 const Settings = () => {
   const { selectedPlaylist } = usePlaylist(); 
-  const [ organized, setOrganized] = useState(null);
+  const [ organized, setOrganized] = useState([]);
   const {songs, setSongs} = useSongs();
   const [isOrganized, setIsOrganized] = useState(false);
   const num_sliders = 5;
