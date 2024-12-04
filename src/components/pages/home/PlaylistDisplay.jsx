@@ -51,7 +51,7 @@ const PlaylistDisplay = () => {
   }
 
   return (
-    <div style={{overflowY:"auto",flexDirection:"column",justifyItems:"center"}}>
+    <div style={{display:"flex", overflowY:"auto",flexDirection:"column",justifyItems:"center", alignItems:"center"}}>
       <div style={{ display:"flex",flexDirection:"row",width:"100%",backgroundColor:"green",borderRadius:"0", textAlign:"center"}}>
         <h2 style={{flex:"1", justifyContent:"center"}}>{selectedPlaylist.name}</h2>
         

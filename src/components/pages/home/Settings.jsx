@@ -75,8 +75,8 @@ const Settings = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <div style={{ width: "100%", justifyItems: "center" }}>
-          <div style={{ display: "flex", flexDirection: "column", flexBasis: "10px", width: "80%", textAlign: "center", gap: "20px", padding: "0" }}>
+        <div style={{ display:"flex", width: "100%", justifyContent: "center"}}>
+          <div style={{ display: "flex", flexDirection: "column", width: "80%", textAlign: "center", gap: "20px", padding: "0" }}>
             <h1>Settings</h1>
             {
               sliderLabels.map((value, index) => {
@@ -85,9 +85,9 @@ const Settings = () => {
                   <div key={updateSongId()}>
 
 
-                    <div style={{ boxShadow: "true", backgroundColor: 'darkgreen', textAlign: 'center', justifyItems: "center", width: "100%", borderRadius: "10px" }} >
+                    <div style={{display:"flex", flexDirection: "column", boxShadow: "true", alignItems:"center", justifyContent:"center", backgroundColor: 'darkgreen', textAlign: 'center', justifyItems: "center", width: "100%", borderRadius: "10px" }} >
                       <p>{value + ": " + sliderValues[index]}</p>
-                      <div style={{ width: "70%" }}>
+                      <div style={{ width: "70%", display: "flex", alignItems:"center", justifyContent:"center"}}>
                         <Slider size="medium" defaultValue={50} value={sliderValues[index]} onChange={buttonID(index)}></Slider>
                       </div>
 
