@@ -3,6 +3,7 @@
     background-color: #ffffff;
     cursor: col-resize;
     transition: background-color 0.2s ease;
+    overflow-y: hidden;
   }
   
   .resizable-divider:hover {

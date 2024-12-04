@@ -91,7 +91,7 @@ function Home() {
     >
 
       <div ref={leftPanelRef} style={{ flex: leftPanelFlex, transition: 'flex 0.1s' }}>
-        <Panel backgroundColor="#89928A" borderRadius="20px">
+        <Panel backgroundColor="#89928A" topMargin="0" bottomMargin="0" leftMargin="0" rightMargin="0" borderRadius="0">
           <SearchMenu />
         </Panel>
       </div>
@@ -113,7 +113,7 @@ function Home() {
       ></div>
 
       <div ref={rightPanelRef} style={{ flex: rightPanelFlex, transition: 'flex 0.1s' }}>
-        <Panel backgroundColor="#D3ECC0" borderRadius="20px">
+        <Panel backgroundColor="#D3ECC0" topMargin="0" bottomMargin="0" leftMargin="0" rightMargin="0" borderRadius="0">
           <PlaylistPanel />
         </Panel>
       </div>
