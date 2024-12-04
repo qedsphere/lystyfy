@@ -30,7 +30,7 @@ const Create = async (songs) => {
     }
 
     //now make the playlist and store its id for future 
-    let playlistid='nothing for now as well';
+    let playlist_id='nothing for now as well';
     const url2 = `https://api.spotify.com/v1/users/${user_id}/playlists`;
     try {
         const response = await fetch(url2, {
@@ -51,43 +51,45 @@ const Create = async (songs) => {
         }
 
         const data = await response.json();
-        playlistid = data.id;
-        console.log(data);
+        playlist_id = data.id;
+        console.log(playlist_id);
     } catch (error) {
         console.error('Error getting user', error);
     }
 
+    //now, add the songs in order to the new playlist
+    const url3 = `https://api.spotify.com/v1/playlists/${playlist_id}/tracks`;
+    let songs2add = [];
+    {songs.map((song, index)=>(
+        songs2add.push(add.song.uri)
+    ))}
     console.log(songs);
+    /*try {
+        const response = await fetch(url2, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+                "name": "Title",
+                "description": "Sorted by Lystyfy",
+                "public": false,
+            }),
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch playlist songs');
+        }
+
+        const data = await response.json();
+        playlistid = data.id;
+        console.log(playlistid);
+    } catch (error) {
+        console.error('Error getting user', error);
+    }*/
+    
     return 'nothing';
 };
 
-/* just for reference. i haven't memorized the syntax :P
-const fetchPlaylistSongs = async () => {
-    if (!selectedPlaylist) return; 
-
-    const token = localStorage.getItem('spotify_access_token'); 
-    const url = `https://api.spotify.com/v1/playlists/${selectedPlaylist.id}/tracks`;
-
-    try {
-      const response = await fetch(url, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to fetch playlist songs');
-      }
-
-      const data = await response.json();
-      //console.log(data)
-      let temp = data.items.map(item => item.track);
-      temp = temp.filter(album => album !== null);     
-      setSongs(temp); 
-    } catch (error) {
-      console.error('Error fetching songs:', error);
-    }
-  };
-
-  fetchPlaylistSongs();*/
 export default Create;

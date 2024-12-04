@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect} from 'react'
-
+import "./LoginPage.css"
 import Panel from "../../templates/Panel"
 {/*<div style={{ height: '100%', width: '100%' }}>*/}
 
@@ -18,14 +18,41 @@ function LoginPage() {
   }, []);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", height: "100vh", justifyContent: "center", backgroundColor: "#242424", color: "white" }}>
-      <h1>Lystyfy</h1>
+    <div id='frame1' class='frame1'>
       <a href={authUrl}>
-      <button className="button-1">
-        Connect with Spotify.
-      </button>
+        <button class="button">Log in with Spotify</button>
       </a>
-      
+      <div id='lystyfy' class='lystyfy'>
+        lystyfy
+      </div>
+      <img id='wave' class='wave' src='./images/wave.png' />
+      <div id='diamond' class='diamond'>
+        ⟡
+      </div>
+      <div id='diamond2' class='diamond2'>
+        ⟡
+      </div>
+      <div id='diamond3' class='diamond3'>
+        ⟡
+      </div>
+      <div id='diamond4' class='diamond4'>
+        ⟡
+      </div>
+      <div id='diamond5' class='diamond5'>
+        ⟡
+      </div>
+      <div id='diamond6' class='diamond6'>
+        ⟡
+      </div>
+      <div id='diamond7' class='diamond7'>
+        ⟡
+      </div>
+      <div id='diamond8' class='diamond8'>
+        ⟡
+      </div>
+      <div id='diamond9' class='diamond9'>
+        ⟡
+      </div>
     </div>
   );
 }
