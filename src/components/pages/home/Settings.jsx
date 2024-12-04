@@ -52,7 +52,7 @@ const Settings = () => {
   }
 
   const generateOrganizedPlaylistIrl = () => {
-    Create(songs);
+    Create(songs, selectedPlaylist);
   }
 
   const showOrganized = () => {
