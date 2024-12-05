@@ -6,13 +6,23 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 
 
 
+
+
 const PlaylistDisplay = () => {
   const { selectedPlaylist, setSelectedPlaylist, songs, setSongs } = useContexts();
   let id = 0; //added in a space and a semicolon here 👍👍
+  let [initialSongs, setInitialSongs] = useState([]);
+
+  const makeString = (song)=>{
+    console.log(initialSongs)
+    console.log(songs)
+    console.log(song===initialSongs);
+    return " - Reordered";
+}
 
   const updateSongId = ()=>{
     id = (id+1);
-    return id
+    return id;
 
   }
   useEffect(() => {
@@ -37,7 +47,9 @@ const PlaylistDisplay = () => {
         //console.log(data)
         let temp = data.items.map(item => item.track);
         temp = temp.filter(album => album !== null);     
+        setInitialSongs(temp);
         setSongs(temp); 
+        
       } catch (error) {
         console.error('Error fetching songs:', error);
       }
@@ -52,8 +64,8 @@ const PlaylistDisplay = () => {
 
   return (
     <div style={{display:"flex", overflowY:"auto",flexDirection:"column",justifyItems:"center", alignItems:"center"}}>
-      <div style={{ display:"flex",flexDirection:"row",width:"100%",backgroundColor:"green",borderRadius:"0", textAlign:"center"}}>
-        <h2 style={{flex:"1", justifyContent:"center"}}>{selectedPlaylist.name}</h2>
+      <div style={{ display:"flex",flexDirection:"row",width:"100%",backgroundColor:"",borderRadius:"0", textAlign:"center"}}>
+        <h1 style={{flex:"1", justifyContent:"center"}}>{selectedPlaylist.name} {(initialSongs!==songs) ?  makeString(songs) : ""} </h1>
         
       </div>
       

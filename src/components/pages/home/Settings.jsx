@@ -12,7 +12,7 @@ import Create from './Create.jsx';
 const theme = createTheme({
   palette: {
     white: {
-      main: "#ffffff",
+      main: "#faf0e6",
       contrastText: "#000000",
     },
     black: {
@@ -85,8 +85,8 @@ const Settings = () => {
                   <div key={updateSongId()}>
 
 
-                    <div style={{display:"flex", flexDirection: "column", boxShadow: "true", alignItems:"center", justifyContent:"center", backgroundColor: 'darkgreen', textAlign: 'center', justifyItems: "center", width: "100%", borderRadius: "10px" }} >
-                      <p>{value + ": " + sliderValues[index]}</p>
+                    <div style={{display:"flex", flexDirection: "column", boxShadow: "true", alignItems:"center", justifyContent:"center", backgroundColor: '#faf0e6', textAlign: 'center', justifyItems: "center", width: "100%", borderRadius: "10px" }} >
+                      <p style={{color:"black"}}>{value + ": " + sliderValues[index]}</p>
                       <div style={{ width: "70%", display: "flex", alignItems:"center", justifyContent:"center"}}>
                         <Slider size="medium" defaultValue={50} value={sliderValues[index]} onChange={buttonID(index)}></Slider>
                       </div>
@@ -103,10 +103,10 @@ const Settings = () => {
             }
 
             {(showOrganized===true && organized && isOrganized  && songs === organized[0] || songs === organized[1]) &&
-              (<Button variant="contained" color={"white"} onClick={generateOrganizedPlaylistIrl}>make this playlist for me</Button>)}
+              (<Button variant="contained" color={"white"} onClick={generateOrganizedPlaylistIrl}>Push to Spotify</Button>)}
 
             {(organized && isOrganized && songs === organized[0] || songs === organized[1]) &&
-              (<Button variant="contained" color={"white"} onClick={showOrganized}>View!</Button>)}
+              (<Button variant="contained" color={"white"} onClick={showOrganized}>Switch View</Button>)}
             
             {/* the below button choice disappears neatly, but the above doesn't render extra space when it is not visible. 
             alternatively we can manually prevent scrolling at some point*/}

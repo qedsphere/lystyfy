@@ -46,12 +46,11 @@ function SearchMenu(){
     
     return (
         <>
-            <div className="search-container">
-              <h1></h1>
+            <div className="search-container" style={{marginTop:"20px"}}>
               
               <SearchBar data={sampleData} />
               
-              <Panel backgroundColor="#000000" borderRadius="20px" flexWidth={2} children={<PlaylistGrid></PlaylistGrid>}>
+              <Panel backgroundColor="#89928A" topMargin="10px" borderRadius="20px" flexWidth={2} children={<PlaylistGrid></PlaylistGrid>}>
               </Panel>
               </div>
               

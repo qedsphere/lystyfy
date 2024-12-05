@@ -41,7 +41,9 @@ const PlaylistGrid = () => {
     };
 
     fetchData();
-  }, []);
+  }, [playlists]);
+
+
 
   if (isLoading) {
     return <p>Loading playlists...</p>;
@@ -55,14 +57,15 @@ const PlaylistGrid = () => {
   return (
     <div>
       <div style={{ overflowY: "auto", flexDirection: "column", justifyItems: "center" }}>
-        <div style={{ display: "flex", flexDirection: "row", width: "100%", backgroundColor: "335C28", borderRadius: "0", textAlign: "center" }}>
-          <h2 style={{ flex: "1", justifyContent: "center" }}>Your Playlists</h2>
+        <div style={{ display: "flex", flexDirection: "row", width: "100%", backgroundColor: "FFFFFF", borderRadius: "0", textAlign: "center" }}>
+          <h1 style={{ flex: "1", justifyContent: "center" }}>Your Playlists</h1>
 
         </div>
 
         <div style={styles.gridContainer}>
           {playlists.map((playlist, index) => (
             <div key={playlist.id} style={styles.gridItem}>
+              <p style={styles.name}>{playlist.name}</p>
               {playlist.images && playlist.images.length > 0 ? (
                 <img
                   src={playlist.images[0].url}
@@ -73,7 +76,7 @@ const PlaylistGrid = () => {
               ) : (
                 <div onClick={() => { setSelectedPlaylist(playlist) }} style={styles.placeholderImage}>No Image</div>
               )}
-              <p style={styles.name}>{playlist.name}</p>
+              
             </div>
           ))}
         </div>
@@ -92,8 +95,14 @@ const styles = {
     marginTop: '20px',
   },
   gridItem: {
-    textAlign: 'center',
+    textAlign: 'left',
+    fontWeight: "200",
     width: '150px',
+    backgroundColor: "white",
+    padding: "20px",
+    paddingBottom: "0px",
+    paddingTop: "0px",
+    borderRadius: "20px",
   },
   image: {
     width: '150px',
@@ -110,13 +119,13 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     fontSize: '14px',
-    color: '#666',
+    color: 'black',
   },
   name: {
     marginTop: '10px',
     fontSize: '16px',
     fontWeight: 'bold',
-    color: '#333',
+    color: 'black',
   },
 };
 

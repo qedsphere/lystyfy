@@ -5,7 +5,7 @@ import Panel from "../../templates/Panel"
 {/*<div style={{ height: '100%', width: '100%' }}>*/}
 
 const AUTH_URL = 'https://accounts.spotify.com/authorize';
-const CLIENT_ID = 'ce817eb205084d69ace124baa8a5fa0c'; 
+const CLIENT_ID = '8d1e423dbdb44bb28b723ac07490f178'; 
 const REDIRECT_URI = 'http://localhost:5173/callback'; 
 const SCOPES = 'user-library-read user-read-private playlist-read-private playlist-modify-public playlist-modify-private '; 
 
@@ -18,39 +18,38 @@ function LoginPage() {
   }, []);
 
   return (
-    <div id='frame1' class='frame1'>
+    <div id='frame1' className='frame1'>
       <a href={authUrl}>
-        <button class="button">Log in with Spotify</button>
+        <button className="button">Log in with Spotify</button>
       </a>
-      <div id='lystyfy' class='lystyfy'>
+      <div id='lystyfy' className='lystyfy'>
         lystyfy
       </div>
-      <img id='wave' class='wave' src='./images/wave.png' />
-      <div id='diamond' class='diamond'>
+      <div id='diamond' className='diamond'>
         ⟡
       </div>
-      <div id='diamond2' class='diamond2'>
+      <div id='diamond2' className='diamond2'>
         ⟡
       </div>
-      <div id='diamond3' class='diamond3'>
+      <div id='diamond3' className='diamond3'>
         ⟡
       </div>
-      <div id='diamond4' class='diamond4'>
+      <div id='diamond4' className='diamond4'>
         ⟡
       </div>
-      <div id='diamond5' class='diamond5'>
+      <div id='diamond5' className='diamond5'>
         ⟡
       </div>
-      <div id='diamond6' class='diamond6'>
+      <div id='diamond6' className='diamond6'>
         ⟡
       </div>
-      <div id='diamond7' class='diamond7'>
+      <div id='diamond7' className='diamond7'>
         ⟡
       </div>
-      <div id='diamond8' class='diamond8'>
+      <div id='diamond8' className='diamond8'>
         ⟡
       </div>
-      <div id='diamond9' class='diamond9'>
+      <div id='diamond9' className='diamond9'>
         ⟡
       </div>
     </div>

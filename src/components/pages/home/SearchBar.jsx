@@ -32,6 +32,9 @@ const SearchBar = ({ data }) => {
         )
         
       }
+      else{
+        setResults([]);
+      }
       
     } else {
       setResults([]);

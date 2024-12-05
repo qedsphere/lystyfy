@@ -4,7 +4,7 @@ import Panel from "../../templates/Panel";
 import PlaylistPanel from './PlaylistPanel';
 
 function Home() {
-  const [leftPanelFlex, setLeftPanelFlex] = useState(3); 
+  const [leftPanelFlex, setLeftPanelFlex] = useState(4); 
   const [rightPanelFlex, setRightPanelFlex] = useState(6); 
   const [isDragging, setIsDragging] = useState(false); 
   const dividerRef = useRef(null); 
