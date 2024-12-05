@@ -13,7 +13,7 @@
     margin-top: 10px;
     padding: 10px 20px;
     border: 2px solid #ccc;
-    color: black;
+    color: grey;
     border-radius: 200px; /* Pill-shaped */
     font-size: 20px;
     font-weight: 200;
@@ -32,7 +32,7 @@
     top: 100%;
     left: 2%;
     right: 2%;
-    background-color: white;
+    background-color: #66FF99;
     border: 1px solid #ccc;
     border-radius: 10px;
 
@@ -44,7 +44,7 @@
     padding: 10px 20px;
     border-bottom: 1px solid #ccc;
     cursor: pointer;
-    color:black;
+    color:#006400;
   }
   
   .result-item:hover {
