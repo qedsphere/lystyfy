@@ -28,7 +28,7 @@ const Settings = () => {
   const { selectedPlaylist, setSelectedPlaylist, songs, setSongs } = useContexts();
   const [isOrganized, setIsOrganized] = useState(false);
   const num_sliders = 5;
-  const sliderLabels = ["BPM", "Key", "Energy", "Acousticness", "Base"]
+  const sliderLabels = ["BPM", "Key", "Energy", "Acousticness", "Bass"]
   const [sliderValues, setSliderValues] = useState(Array(num_sliders).fill(50));
   let id = 0;
   const updateSongId = () => {

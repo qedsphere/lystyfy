@@ -8,23 +8,22 @@
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     padding: 0px;
 
-    /* Create a tiled diamond pattern */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="30px" height="20px"><text x="5" y="15" fill-color="black" font-family="FontAwesome">&#x27E1;</text></svg>');
-  background-position: right center;
-  background-repeat: repeat;
-  fill-color: black;
+    background-image: radial-gradient(circle, rgba(13, 122, 1, 0.20) 20%, transparent 20%);
+    background-size: 30px 30px; 
+    background-repeat: repeat;
 }
     
-
 .button {
     background-color: #335c28;
-    font-size: 40px;
-    height: 200px;
-    width: 400px;
-    border-radius: 50px;
-    top: 549px;
-    left: 367px;
+    font-size: 5vw; /* Font size scales with viewport width */
+    font-weight: 800;
+    height: 33vh; /* Height scales with viewport height */
+    width: 20vw; /* Width scales with viewport width */
+    border-radius: 15vh; /* Border radius is proportional to the height */
     position: absolute;
+    top: 60%; /* Centering with percentages */
+    left: 35%; /* Centering with percentages */
+    transform: translate(-50%, -50%); /* Adjust for precise centering */
     text-align: center;
 }
 
@@ -32,24 +31,42 @@
     color: #325c28;
     text-align: left;
     vertical-align: text-top;
-    font-size: 200px;
-    left: 172px;
-    top: 250px;
-    width: 688px;
-    height: 244px;
+    font-size: 10vw; /* Responsive font size based on viewport width */
     position: absolute;
-    line-height: auto;
-    border-style: hidden;
-    outline: none;
+    left: 10%; /* Relative to the parent or viewport */
+    top: 20%; /* Adjust placement */
+    width: 35%; /* Percentage-based width */
+    height: auto; /* Let the height adjust automatically */
+    line-height: 1.2; /* Set a relative line height for better readability */
+    border-style: none; /* Use none for no border */
+    outline: none; /* Disable outlines */
 }
 
 .wave {
-    height: 1045px;
-    width: 735px;
-    left: 1185px;
+    height:90vh; /* Height scales with the viewport height */
+    width: auto; /* Maintain aspect ratio */
+    left: 60%; /* Position relative to viewport width */
     position: absolute;
+    
+        /* Ensure it adjusts for smaller screens */
+    max-width: 100%; /* Prevent the image from overflowing */
 }
 
+@media (max-width: 768px) {
+    .wave {
+        height: 30vh; /* Smaller height for smaller screens */
+        left: 50%; /* Adjust position */
+        transform: translateX(-50%); /* Center the image horizontally */
+    }
+}
+
+@media (max-width: 480px) {
+    .wave {
+        height: 25vh; /* Further reduce height for very small screens */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Center alignment */
+    }
+}
 .diamond {
     color: #000000;
     text-align: left;
