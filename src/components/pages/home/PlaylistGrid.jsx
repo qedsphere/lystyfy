@@ -58,7 +58,7 @@ const PlaylistGrid = () => {
     <div>
       <div style={{ overflowY: "auto", flexDirection: "column", justifyItems: "center" }}>
         <div style={{ display: "flex", flexDirection: "row", width: "100%", backgroundColor: "FFFFFF", borderRadius: "0", textAlign: "center" }}>
-          <h1 style={{ flex: "1", justifyContent: "center" }}>Your Playlists</h1>
+          <h1 style={{ flex: "1", justifyContent: "center", color: "#FFFFFF"}}>Your Playlists</h1>
 
         </div>
 

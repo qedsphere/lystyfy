@@ -44,7 +44,7 @@ const PlaylistDisplay = () => {
         }
 
         const data = await response.json();
-        //console.log(data)
+        console.log(data)
         let temp = data.items.map(item => item.track);
         temp = temp.filter(album => album !== null);     
         setInitialSongs(temp);

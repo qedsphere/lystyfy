@@ -13,10 +13,10 @@
     margin-top: 10px;
     padding: 10px 20px;
     border: 2px solid #ccc;
-    color: lightgrey;
+    color: grey;
     border-radius: 200px; /* Pill-shaped */
     font-size: 20px;
-    font-weight: 200;
+    font-weight: 1000;
     outline: none;
     background-color: #D9D9D9;
     height: 60px;
@@ -32,7 +32,7 @@
     top: 100%;
     left: 2%;
     right: 2%;
-    background-color: #66FF99;
+    background-color: rgb(250, 240, 230);
     border: 1px solid #ccc;
     border-radius: 10px;
 
@@ -44,11 +44,11 @@
     padding: 10px 20px;
     border-bottom: 1px solid #ccc;
     cursor: pointer;
-    color:#006400;
+    color:#0C0C0C;
   }
   
   .result-item:hover {
-    background-color: darkseagreen;
+    background-color: #335C28;
     border-radius: 10px;
 
     
